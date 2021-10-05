@@ -1,0 +1,9 @@
+const shoplist = `[{
+    "name": "Some bike",
+    "price": 2000,
+    "qtty": 0
+},{
+    "name": "Some other bike",
+    "price": 4000,
+    "qutty": 0
+}]`
