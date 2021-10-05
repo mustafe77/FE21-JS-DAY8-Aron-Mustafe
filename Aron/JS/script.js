@@ -3,15 +3,31 @@ const products = JSON.parse(shoplist);
 
 for (let val of products){
 
-    document.getElementById("products").innerHTML += `<div class="product"> <h1>${val.name}</h1> </div>
-    <button type="button" class="btn btn-secondary"> Add to cart </button>`;
-
+    document.getElementsByClassName("products")[0].innerHTML += `<div class="product col-12 col-md-6 col-lg-4 text-center fw-bold">
+            <p class="h3 m-3">${val.name}</p>
+            <img class="prod-image"src="${val.img}">
+        <div>
+            <p class="product-price h4 m-3">${val.price.toFixed(2)} €</p>
+            <button class="btn btn-success prod-button" type="button">ADD TO CART</button>
+        </div>
+    </div>`
 }
 
 //Empty array that gets filled up
 let cart = [];
 
+let btns = document.getElementsByClassName("prod-button");
 
+//Add click for all buttons
+for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+        addToCart(products[i], i);
+    })
+}
+
+
+
+//Add stuff to cart
 function addToCart(obj){
 
     //Cart empty
@@ -28,7 +44,38 @@ function addToCart(obj){
     else {
         cart.push(obj);
     }
+
+    displayCart();
+    total();
 }
+
+function displayCart(){
+    let result = "";
+
+    for (let val of cart){
+        result +=  
+        `<div class="d-flex row">
+            <div class="col-6">
+                <img width="100" height="100" src="${val.img}">
+                <span class="cart-item">${val.name}</span>
+            </div>
+        </div>`
+    }
+
+    document.getElementById("cart-items").innerHTML = result;
+}
+
+function total() {
+    let total = 0;
+
+    for (let val of cart){
+        total += (val.price * val.qtty);
+    }
+
+    document.getElementById("grandtotal").innerHTML = total.toFixed(2);
+
+}
+
 
 let buttons = document.getElementsByClassName("product-button");
 
