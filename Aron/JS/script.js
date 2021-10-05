@@ -1,6 +1,6 @@
 const products = JSON.parse(shoplist);
 
-
+//display products from array
 for (let val of products){
 
     document.getElementsByClassName("products")[0].innerHTML += `<div class="product col-12 col-md-6 col-lg-4 text-center fw-bold">
@@ -16,15 +16,15 @@ for (let val of products){
 //Empty array that gets filled up
 let cart = [];
 
+//Add to cart buttons
 let btns = document.getElementsByClassName("prod-button");
 
-//Add click for all buttons
+//Add click for all add to cart buttons 
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function(){
-        addToCart(products[i], i);
+        addToCart(products[i]);
     })
 }
-
 
 
 //Add stuff to cart
@@ -38,7 +38,7 @@ function addToCart(obj){
     /* ‘find‘ function searches in array, returns true if found */
     /* else if (cart.find(function(val){return val.name == obj.name} i.e. returns true or false*/
     else if(cart.find((val) => val.name == obj.name)){
-        obj.qtty ++; 
+        obj.qtty ++;
     }
 
     else {
@@ -49,15 +49,23 @@ function addToCart(obj){
     total();
 }
 
+//Displays (filled) cart below product list
 function displayCart(){
     let result = "";
 
     for (let val of cart){
-        result +=  
-        `<div class="d-flex row">
-            <div class="col-6">
+        result += `
+        <div class="d-flex row">
+            <div class="col-4">
                 <img width="100" height="100" src="${val.img}">
-                <span class="cart-item">${val.name}</span>
+            </div>
+
+            <div class="col-4>
+                <span class="h4 cart-item">${val.name}</span>
+            </div>
+
+            <div class="col-4">
+                <span class="h4">${val.price.toFixed(2)}€</span>
             </div>
         </div>`
     }
@@ -65,45 +73,15 @@ function displayCart(){
     document.getElementById("cart-items").innerHTML = result;
 }
 
-function total() {
+function total(){
     let total = 0;
 
     for (let val of cart){
         total += (val.price * val.qtty);
     }
-
-    document.getElementById("grandtotal").innerHTML = total.toFixed(2);
-
+    document.getElementById("grandtotal").innerHTML = `<h1> Total: ${total.toFixed(2)}€ </h1>`;
 }
 
 
-let buttons = document.getElementsByClassName("product-button");
-
-for (let i = 0; i < buttons.length; i++){
-    buttons[i].addEventListener("click", function(){
-        
-        }
-    )
-}
-
-
-//Display shopping cart
-
-function createRow (){
-
-}
-
-
-function total(){
-    let total = 0;
-    for (let val of cart){
-        total = total + val.price * val.qutty;
-    }
-}
-
-function plusQtty(index){
-    cart[index].qtty++; //Increase by one
-    document.getElementsByName("cart-qutty")[index].innerHTML = cart[index].qutty;
-}
-
-//getElementsByName --> Array --> INDEX!!
+displayCart();
+total();

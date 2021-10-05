@@ -1,6 +1,6 @@
-/* div {
+div {
     border: 1px solid red;
-} */
+}
 
 .prod-image {
     object-fit: cover;
@@ -9,8 +9,9 @@
     margin: 0 auto;
 }
 
-.cart-item {
-    color: black;
-    font-weight: bold;
-    font-size: small;
+
+.showcart {
+    border: 1px solid blue;
+    margin: 0 auto;
+    width: 50vw;
 }

@@ -2,40 +2,40 @@ const shoplist = `[{
     "name": "Pink Flower",
     "img": "img/pinkflower.JPG",
     "price": 3.50,
-    "qtty": 0
+    "qtty": 1
 },{
     "name": "Yellow Flower",
     "img": "img/yellowflower.JPG",
     "price": 3.50,
-    "qutty": 0
+    "qtty": 1
 },{
     "name": "I Swear It Meant Nothing",
     "img": "img/itmeantnothing.JPG",
     "price": 19.90,
-    "qtty": 0
+    "qtty": 1
 },{
     "name": "Fancy Flower",
     "img": "img/fancyflower.JPG",
     "price": 6.50,
-    "qtty": 0
+    "qtty": 1
 },{
     "name": "Orange Menace",
     "img": "img/orangemenace.JPG",
     "price": 4.50,
-    "qtty": 0
+    "qtty": 1
 },{
     "name": "Pale Pink Rose",
     "img": "img/rose.JPG",
     "price": 8.40,
-    "qtty": 0
+    "qtty": 1
 },{
     "name": "Oh Happy Day",
     "img": "img/happyday.JPG",
     "price": 5.60,
-    "qtty": 0
+    "qtty": 1
 },{
     "name": "Not A Flower",
     "img": "img/cactus.JPG",
     "price": 9.90,
-    "qtty": 0
+    "qtty": 1
 }]`
