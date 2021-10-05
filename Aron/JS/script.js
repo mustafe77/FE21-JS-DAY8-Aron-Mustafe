@@ -3,7 +3,7 @@ const products = JSON.parse(shoplist);
 //display products from array
 for (let val of products){
 
-    document.getElementsByClassName("products")[0].innerHTML += `<div class="product col-12 col-md-6 col-lg-4 text-center fw-bold">
+    document.getElementsByClassName("products")[0].innerHTML += `<div class="col-12 col-md-6 col-lg-4 text-center fw-bold">
             <p class="h3 m-3">${val.name}</p>
             <img class="prod-image"src="${val.img}">
         <div>
@@ -55,16 +55,16 @@ function displayCart(){
 
     for (let val of cart){
         result += `
-        <div class="d-flex row">
-            <div class="col-4">
+        <div class="d-flex flex-row">
+            <div class="col-4 m-1">
                 <img width="100" height="100" src="${val.img}">
             </div>
 
-            <div class="col-4>
-                <span class="h4 cart-item">${val.name}</span>
+            <div class="col-4 m-1">
+                <span class="h4">${val.name}</span>
             </div>
 
-            <div class="col-4">
+            <div class="col-4 m-1">
                 <span class="h4">${val.price.toFixed(2)}€</span>
             </div>
         </div>`
